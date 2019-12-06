@@ -74,7 +74,11 @@ class StudentController {
 
     const { id } = user;
     const { name } = await Student.update(
-      { weight: req.body.weight, height: req.body.height, name: req.body.name },
+      {
+        weight: req.body.weight,
+        height: req.body.height,
+        name: req.body.name,
+      },
       { where: { email } }
     );
 
