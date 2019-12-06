@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 import SessionController from './app/controllers/SessionController';
+import StudentController from './app/controllers/StudentsController';
 import authMiddleware from './app/middlewares/auth';
 
 const routes = new Router();
@@ -14,5 +15,7 @@ routes.get('/', (req, res) => {
 routes.post('/sessions', SessionController.store);
 
 routes.use(authMiddleware);
+
+routes.post('/students/register', StudentController.store);
 
 export default routes;
