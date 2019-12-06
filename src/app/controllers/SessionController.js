@@ -23,7 +23,7 @@ class SessionController {
 
     try {
       const user = await User.findOne({
-        where: { email: 'admin@gympoint.com' },
+        where: { email },
       });
 
       if (!user) {
