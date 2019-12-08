@@ -62,16 +62,6 @@ class StudentController {
         .json({ error: 'Aluno não encontrado. Verifique o email preenchido.' });
     }
 
-    if (email !== user.email) {
-      const emailExists = await Student.findOne({ where: { email } });
-
-      if (emailExists) {
-        return res
-          .status(400)
-          .json({ error: 'Há outro aluno cadastrado com este email.' });
-      }
-    }
-
     const { id } = user;
     const { name } = await Student.update(
       {
